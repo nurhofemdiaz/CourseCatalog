@@ -12,14 +12,13 @@ import javax.ws.rs.Produces;
 import org.springframework.stereotype.Component;
 
 import com.jmdiaz.course.catalog.model.Course;
-import com.jmdiaz.course.catalog.model.CourseLevel;
+import com.jmdiaz.course.catalog.model.Page;
 import com.jmdiaz.course.catalog.model.Teacher;
+import com.jmdiaz.course.catalog.utils.CourseLevel;
 
 @Component
 @Path("/course")
 public class CourseCatalogRestController {
-	
-	
 	/*
 	 * LAYER COURSE CATALOG LIST
 	 */
@@ -47,9 +46,9 @@ public class CourseCatalogRestController {
 	@GET
     @Produces("application/json")
 	@Path("/page/{numberOfPage}/size/{courseSizeList}/order/{order}")
-    public Collection<Course> getPageCoursesOrderered(@PathParam("numberOfPage") int numberOfPage, 
+    public Page getPageCoursesOrderered(@PathParam("numberOfPage") int numberOfPage, 
     												   @PathParam("courseSizeList") int courseSizeList, 
-    												   @PathParam("order") int order) {
+    												   @PathParam("order") boolean ascendingOrder) {
 //        return service.getAll();
         return null;
     }

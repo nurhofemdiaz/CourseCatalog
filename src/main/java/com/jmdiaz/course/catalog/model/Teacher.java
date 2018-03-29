@@ -1,11 +1,15 @@
 package com.jmdiaz.course.catalog.model;
 
 public class Teacher {
+	private int id;
 	private String name;
 	private String surname;
 	
-	public Teacher(String name, String surname) {
+	public Teacher() {}
+	
+	public Teacher(int id, String name, String surname) {
 		super();
+		this.id = id;
 		this.name = name;
 		this.surname = surname;
 	}
@@ -24,5 +28,13 @@ public class Teacher {
 	
 	public void setSurname(String surname) {
 		this.surname = surname;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 }

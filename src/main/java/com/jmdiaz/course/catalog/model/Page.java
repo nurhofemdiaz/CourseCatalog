@@ -9,6 +9,8 @@ public class Page {
 	private String orderingField;
 	private Collection<Course> courseList;
 	
+	public Page() {}
+	
 	public Page(int numberOfPage, int rowSizeList, boolean ascendingOrder, String orderingField, Collection<Course> courseList) {
 		super();
 		this.numberOfPage = numberOfPage;

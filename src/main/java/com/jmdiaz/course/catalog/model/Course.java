@@ -1,17 +1,23 @@
 package com.jmdiaz.course.catalog.model;
 
+import com.jmdiaz.course.catalog.utils.CourseLevel;
+
 public class Course {
+	private int id;
 	private boolean enable;
 	private String title;
 	private CourseLevel level;
 	private int hours;
 	private Teacher teacher;
 	
-	public Course(boolean enable, String title, CourseLevel level, int hours, Teacher teacher) {
+	public Course() {}
+	
+	public Course(int id, boolean enable, String title, int level, int hours, Teacher teacher) {
 		super();
+		this.id = id;
 		this.enable = enable;
 		this.title = title;
-		this.level = level;
+		this.level = CourseLevel.getLevel(level);
 		this.hours = hours;
 		this.teacher = teacher;
 	}
@@ -32,12 +38,12 @@ public class Course {
 		this.title = title;
 	}
 	
-	public CourseLevel getLevel() {
-		return level;
+	public int getLevel() {
+		return level.ordinal();
 	}
 	
-	public void setLevel(CourseLevel level) {
-		this.level = level;
+	public void setLevel(int level) {
+		this.level = CourseLevel.getLevel(level);
 	}
 	
 	public int getHours() {
@@ -54,5 +60,13 @@ public class Course {
 	
 	public void setTeacher(Teacher teacher) {
 		this.teacher = teacher;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 }
