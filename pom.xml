@@ -21,15 +21,18 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<java.version>9</java.version>
+		<java.version>1.8</java.version>
+		<start-class>com.jmdiaz.course.catalog.CourseCatalogApplication</start-class>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
 	</properties>
 
 	<dependencies>
 		<!-- Spring boot web starter-->
-		<dependency>
+		<!-- dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency>
+		</dependency-->
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -60,7 +63,6 @@
 		<dependency>
 		    <groupId>org.postgresql</groupId>
 		    <artifactId>postgresql</artifactId>
-		    <version>9.4-1200-jdbc41</version>
 		</dependency>
 		
 		<!-- Testing -->
@@ -78,6 +80,7 @@
 	</dependencies>
 
 	<build>
+		<finalName>CourseCatalog</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>

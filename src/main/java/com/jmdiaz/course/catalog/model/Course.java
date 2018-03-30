@@ -2,6 +2,11 @@ package com.jmdiaz.course.catalog.model;
 
 import com.jmdiaz.course.catalog.utils.CourseLevel;
 
+/**
+ * Course POJO
+ * @author kentaro
+ *
+ */
 public class Course {
 	private int id;
 	private boolean enable;

@@ -1,23 +1,22 @@
 package com.jmdiaz.course.catalog.model;
 
-import java.util.Collection;
-
+/**
+ * Page POJO
+ * @author kentaro
+ *
+ */
 public class Page {
 	private int numberOfPage;
 	private int rowSizeList;
 	private boolean ascendingOrder;
-	private String orderingField;
-	private Collection<Course> courseList;
 	
 	public Page() {}
 	
-	public Page(int numberOfPage, int rowSizeList, boolean ascendingOrder, String orderingField, Collection<Course> courseList) {
+	public Page(int numberOfPage, int rowSizeList, boolean ascendingOrder) {
 		super();
 		this.numberOfPage = numberOfPage;
 		this.rowSizeList = rowSizeList;
 		this.ascendingOrder = ascendingOrder;
-		this.orderingField = orderingField;
-		this.courseList = courseList;
 	}
 	
 	public int getNumberOfPage() {
@@ -42,21 +41,5 @@ public class Page {
 	
 	public void setAscendingOrder(boolean ascendingOrder) {
 		this.ascendingOrder = ascendingOrder;
-	}
-	
-	public String getOrderingField() {
-		return orderingField;
-	}
-	
-	public void setOrderingField(String orderingField) {
-		this.orderingField = orderingField;
-	}
-	
-	public Collection<Course> getCourseList() {
-		return courseList;
-	}
-	
-	public void setCourseList(Collection<Course> courseList) {
-		this.courseList = courseList;
 	}
 }

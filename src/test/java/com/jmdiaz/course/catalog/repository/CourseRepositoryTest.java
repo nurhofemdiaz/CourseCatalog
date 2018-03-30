@@ -5,7 +5,7 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.Matchers.hasProperty;
 import static org.junit.Assert.assertThat;
 
-import java.util.List;
+import java.util.Collection;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -28,7 +28,7 @@ public class CourseRepositoryTest {
 
 	@Test
 	public void testGetAllActiveCourses() {
-		List<Course> courseList = courseRepository.getAllActiveCourses(3, 3, Order.getOrder(true));
+		Collection<Course> courseList = courseRepository.getAllActiveCourses(3, 3, Order.getOrder(true));
 		assertThat(courseList, hasItem(hasProperty("title", is("Novedades en Java 8"))));
 	}
 	

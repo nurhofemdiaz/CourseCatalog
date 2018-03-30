@@ -1,28 +1,39 @@
 package com.jmdiaz.course.catalog.service;
 
-import java.util.Collection;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.jmdiaz.course.catalog.model.Course;
+import com.jmdiaz.course.catalog.model.Page;
+import com.jmdiaz.course.catalog.repository.CourseRepository;
+import com.jmdiaz.course.catalog.utils.Order;
 
+/**
+ * Default implementation for course catalog service
+ * @author kentaro
+ *
+ */
+@Service
 public class CourseCatalogServiceDefault implements CourseCatalogService {
+	
+	@Autowired
+	private CourseRepository courseRepository;
 
 	@Override
-	public Collection<Course> getCoursesPage(int numberPage, int numberRows, String sortNameField,
-			boolean ascendingOrdered) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Course> getCoursesPage(Page page) {
+		return courseRepository.getAllActiveCourses(page.getNumberOfPage(), page.getRowSizeList(), Order.getOrder(page.isAscendingOrder()));
 	}
 
 	@Override
 	public Integer getNumberPages(int numberRows) {
-		// TODO Auto-generated method stub
-		return null;
+		return courseRepository.getPagesNumber(numberRows);
 	}
 
 	@Override
 	public void addCourse(Course course) {
-		// TODO Auto-generated method stub
-
+		courseRepository.addCourse(course);
 	}
-
+	
 }

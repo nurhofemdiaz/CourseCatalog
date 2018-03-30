@@ -1,28 +1,27 @@
 package com.jmdiaz.course.catalog.service;
 
-import java.util.Collection;
+import java.util.List;
 
-import com.jmdiaz.course.catalog.model.Course;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-public class TeacherServiceDefault implements CourseCatalogService {
+import com.jmdiaz.course.catalog.model.Teacher;
+import com.jmdiaz.course.catalog.repository.TeacherRepository;
 
+/**
+* Default implementation for teacher of courses service
+* @author kentaro
+*
+*/
+@Service
+public class TeacherServiceDefault implements TeacherService {
+
+	@Autowired
+	TeacherRepository teacherRepository;
+	
 	@Override
-	public Collection<Course> getCoursesPage(int numberPage, int numberRows, String sortNameField,
-			boolean ascendingOrdered) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Teacher> getAllTeachers() {
+		return teacherRepository.getAllTeachers();
 	}
-
-	@Override
-	public Integer getNumberPages(int numberRows) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void addCourse(Course course) {
-		// TODO Auto-generated method stub
-
-	}
-
+	
 }
