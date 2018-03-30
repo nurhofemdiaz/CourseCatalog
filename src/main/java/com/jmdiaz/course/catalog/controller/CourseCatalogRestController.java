@@ -47,7 +47,7 @@ public class CourseCatalogRestController {
 	 */
 	@GET
     @Produces("application/json")
-	@Path("/pages/size/{courseSizeList}")
+	@Path("/page/size/{courseSizeList}")
     public Integer getNumberOfPages( @PathParam("courseSizeList") int courseSizeList) {
 		return courseService.getNumberPages(courseSizeList);
     }
@@ -72,8 +72,8 @@ public class CourseCatalogRestController {
 	 * LAYER ADD COURSE TO CATALOG LIST
 	 */
 	/**
-	 * 
-	 * @return
+	 * Get all course teachers available
+	 * @return 	All teachers list
 	 */
 	@GET
     @Produces("application/json")
@@ -83,7 +83,7 @@ public class CourseCatalogRestController {
     }
 	
 	/**
-	 * 
+	 * This method return all course levels available
 	 * @return
 	 */
 	@GET

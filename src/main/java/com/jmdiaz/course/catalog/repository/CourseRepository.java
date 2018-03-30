@@ -24,13 +24,13 @@ public interface CourseRepository {
 	 * @param order			Possible values 'ASC' or 'DESC'
 	 * @return Page with list of course
 	 */
-	@Select("SELECT * FROM course c, teacher t "
-			+ "WHERE c.teacher = t.id "
-				+ "AND c.enable = true "
-			+ "ORDER BY c.title ${order} "
-			+ "LIMIT #{rowSizeList}"
-			+ "OFFSET (#{rowSizeList} * (#{numberOfPage}))"
-	)
+//	@Select("SELECT * FROM course c, teacher t "
+//			+ "WHERE c.teacher = t.id "
+//				+ "AND c.enable = true "
+//			+ "ORDER BY c.title ${order} "
+//			+ "LIMIT #{rowSizeList}"
+//			+ "OFFSET (#{rowSizeList} * (#{numberOfPage}))"
+//	)
 	List<Course> getAllActiveCourses(@Param("numberOfPage") int numberOfPage, 
 									@Param("rowSizeList") int rowSizeList, 
 									@Param("order") String order);
