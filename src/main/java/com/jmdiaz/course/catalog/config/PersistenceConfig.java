@@ -14,21 +14,21 @@ import org.springframework.jdbc.datasource.SimpleDriverDataSource;
 @Configuration
 @MapperScan("com.jmdiaz.course.catalog.repository")
 public class PersistenceConfig {
-	@Value("${database.dbHost}") 
-    private String dbHost; 
-	
-	@Value("${database.dbPort}") 
-    private String dbPort;
-	
-	@Value("${database.dbName}") 
-    private String dbName;
-	
-	@Value("${database.dbUser}") 
-    private String dbUser;
-	
-	@Value("${database.dbPwd}") 
-    private String dbPwd;
-	
+	@Value("${database.dbHost}")
+	private String dbHost;
+
+	@Value("${database.dbPort}")
+	private String dbPort;
+
+	@Value("${database.dbName}")
+	private String dbName;
+
+	@Value("${database.dbUser}")
+	private String dbUser;
+
+	@Value("${database.dbPwd}")
+	private String dbPwd;
+
 	@Bean
 	public DataSource dataSource() {
 		SimpleDriverDataSource sdds = new SimpleDriverDataSource();
@@ -38,12 +38,12 @@ public class PersistenceConfig {
 		sdds.setPassword(dbPwd);
 		return sdds;
 	}
- 
+
 	@Bean
 	public DataSourceTransactionManager transactionManager() {
 		return new DataSourceTransactionManager(dataSource());
 	}
- 
+
 	@Bean
 	public SqlSessionFactoryBean sqlSessionFactory() throws Exception {
 		SqlSessionFactoryBean sessionFactory = new SqlSessionFactoryBean();

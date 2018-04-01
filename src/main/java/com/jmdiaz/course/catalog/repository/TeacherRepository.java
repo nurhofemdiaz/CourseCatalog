@@ -9,6 +9,7 @@ import com.jmdiaz.course.catalog.model.Teacher;
 
 /**
  * Mapper SQL for Teacher Repository
+ * 
  * @author kentaro
  *
  */
@@ -17,6 +18,7 @@ public interface TeacherRepository {
 
 	/**
 	 * Select all course teachers
+	 * 
 	 * @return teachers
 	 */
 	@Select("SELECT * FROM teacher")

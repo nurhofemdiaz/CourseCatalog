@@ -7,6 +7,7 @@ import com.jmdiaz.course.catalog.config.CorsConfig;
 
 /**
  * Configuration class for Jersey Resources
+ * 
  * @author kentaro
  *
  */
@@ -14,7 +15,7 @@ import com.jmdiaz.course.catalog.config.CorsConfig;
 public class JerseyConfig extends ResourceConfig {
 
 	/*
-	 *  Registration resources 
+	 * Registration resources
 	 */
 	public JerseyConfig() {
 		registerClasses(CourseCatalogRestController.class, CorsConfig.class);

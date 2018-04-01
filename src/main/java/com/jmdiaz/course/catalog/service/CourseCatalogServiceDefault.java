@@ -12,18 +12,20 @@ import com.jmdiaz.course.catalog.utils.Order;
 
 /**
  * Default implementation for course catalog service
+ * 
  * @author kentaro
  *
  */
 @Service
 public class CourseCatalogServiceDefault implements CourseCatalogService {
-	
+
 	@Autowired
 	private CourseRepository courseRepository;
 
 	@Override
 	public List<Course> getCoursesPage(Page page) {
-		return courseRepository.getAllActiveCourses(page.getNumberOfPage(), page.getRowSizeList(), Order.getOrder(page.isAscendingOrder()));
+		return courseRepository.getAllActiveCourses(page.getNumberOfPage(), page.getRowSizeList(),
+				Order.getOrder(page.isAscendingOrder()));
 	}
 
 	@Override
@@ -35,5 +37,5 @@ public class CourseCatalogServiceDefault implements CourseCatalogService {
 	public void addCourse(Course course) {
 		courseRepository.addCourse(course);
 	}
-	
+
 }

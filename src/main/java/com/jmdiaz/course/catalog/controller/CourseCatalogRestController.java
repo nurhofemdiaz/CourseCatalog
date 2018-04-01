@@ -22,85 +22,92 @@ import com.jmdiaz.course.catalog.utils.CourseLevel;
 
 /**
  * Rest controller
+ * 
  * @author kentaro
  *
  */
 @Component
 @Path("/course")
 public class CourseCatalogRestController {
-	
+
 	@Autowired
 	private CourseCatalogService courseService;
-	
+
 	@Autowired
 	private TeacherService teacherService;
 	
-	
+
 	/*
 	 * LAYER COURSE CATALOG LIST
 	 */
-	
+
 	/**
-	 * Get the pages number for a input parameter size of rows 
-	 * @param courseSizeList	Number of row per page
+	 * Get the pages number for a input parameter size of rows
+	 * 
+	 * @param courseSizeList
+	 *            Number of row per page
 	 * @return Pages number
 	 */
 	@GET
-    @Produces("application/json")
+	@Produces("application/json")
 	@Path("/page/size/{courseSizeList}")
-    public Integer getNumberOfPages( @PathParam("courseSizeList") int courseSizeList) {
+	public Integer getNumberOfPages(@PathParam("courseSizeList") int courseSizeList) {
 		return courseService.getNumberPages(courseSizeList);
-    }
-	
+	}
+
 	/**
-	 * This method return all active course for a page per number of rows to show ordered
+	 * This method return all active course for a page per number of rows to show
+	 * ordered
+	 * 
 	 * @param numberOfPage
 	 * @param courseSizeList
 	 * @param order
 	 * @return
 	 */
 	@GET
-    @Produces("application/json")
+	@Produces("application/json")
 	@Path("/page/{numberOfPage}/size/{courseSizeList}/order/{order}")
-    public List<Course> getPageCoursesOrderered(@PathParam("numberOfPage") int numberOfPage, 
-    												   @PathParam("courseSizeList") int courseSizeList, 
-    												   @PathParam("order") boolean ascendingOrder) {
-        return courseService.getCoursesPage(new Page(numberOfPage,courseSizeList,ascendingOrder));
-    }
-	
+	public List<Course> getPageCoursesOrderered(@PathParam("numberOfPage") int numberOfPage,
+			@PathParam("courseSizeList") int courseSizeList, @PathParam("order") boolean ascendingOrder) {
+		return courseService.getCoursesPage(new Page(numberOfPage, courseSizeList, ascendingOrder));
+	}
+
 	/*
 	 * LAYER ADD COURSE TO CATALOG LIST
 	 */
 	/**
 	 * Get all course teachers available
-	 * @return 	All teachers list
+	 * 
+	 * @return All teachers list
 	 */
 	@GET
-    @Produces("application/json")
+	@Produces("application/json")
 	@Path("/teachers")
-    public Collection<Teacher> getAllTeachers() {
-        return teacherService.getAllTeachers();
-    }
-	
+	public Collection<Teacher> getAllTeachers() {
+		return teacherService.getAllTeachers();
+	}
+
 	/**
 	 * This method return all course levels available
+	 * 
 	 * @return
 	 */
 	@GET
-    @Produces("application/json")
+	@Produces("application/json")
 	@Path("/levels")
-    public CourseLevel[] getCourseLevels() {
-        return CourseLevel.values();
-    }
-	
+	public CourseLevel[] getCourseLevels() {
+		return CourseLevel.values();
+	}
+
 	/**
+	 * This method add a new course
 	 * 
 	 * @param course
 	 */
 	@POST
-    @Consumes("application/json")
+	@Consumes("application/json")
 	@Path("/add")
-    public void addBook(Course course) {
+	public void addCourse(Course course) {
 		courseService.addCourse(course);
-    }
+	}
 }

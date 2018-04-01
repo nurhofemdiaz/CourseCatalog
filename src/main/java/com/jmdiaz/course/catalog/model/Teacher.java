@@ -2,6 +2,7 @@ package com.jmdiaz.course.catalog.model;
 
 /**
  * Teacher POJO
+ * 
  * @author kentaro
  *
  */
@@ -9,9 +10,10 @@ public class Teacher {
 	private int id;
 	private String name;
 	private String surname;
-	
-	public Teacher() {}
-	
+
+	public Teacher() {
+	}
+
 	public Teacher(int id, String name, String surname) {
 		super();
 		this.id = id;
@@ -22,15 +24,15 @@ public class Teacher {
 	public String getName() {
 		return name;
 	}
-	
+
 	public void setName(String name) {
 		this.name = name;
 	}
-	
+
 	public String getSurname() {
 		return surname;
 	}
-	
+
 	public void setSurname(String surname) {
 		this.surname = surname;
 	}
