@@ -48,7 +48,7 @@ public interface CourseRepository {
 	 * @param course	new course
 	 */
 	@Insert("INSERT INTO course (title, enable, level, hours, teacher) "
-			+ "VALUES (#{title}, #{enable}, #{level}, #{hours}, #{teacher.id})"
+			+ "VALUES (#{title}, #{enable}, #{ordinal}, #{hours}, #{teacher.id})"
 	)
 	@Options(useGeneratedKeys=true,keyProperty="id")
 	void addCourse(Course course);

@@ -43,7 +43,11 @@ public class Course {
 		this.title = title;
 	}
 	
-	public int getLevel() {
+	public CourseLevel getLevel() {
+		return level;
+	}
+	
+	public int getOrdinal() {
 		return level.ordinal();
 	}
 	
