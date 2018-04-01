@@ -53,7 +53,7 @@ public class CourseCatalogRestController {
     }
 	
 	/**
-	 * 
+	 * This method return all active course for a page per number of rows to show ordered
 	 * @param numberOfPage
 	 * @param courseSizeList
 	 * @param order
@@ -99,6 +99,7 @@ public class CourseCatalogRestController {
 	 */
 	@POST
     @Consumes("application/json")
+	@Path("/add")
     public void addBook(Course course) {
 		courseService.addCourse(course);
     }
