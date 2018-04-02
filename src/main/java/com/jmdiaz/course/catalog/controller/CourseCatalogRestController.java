@@ -28,14 +28,13 @@ import com.jmdiaz.course.catalog.utils.CourseLevel;
  */
 @Component
 @Path("/course")
-public class CourseCatalogRestController {
+public class CourseCatalogRestController implements CourseCatalogController {
 
 	@Autowired
 	private CourseCatalogService courseService;
 
 	@Autowired
 	private TeacherService teacherService;
-	
 
 	/*
 	 * LAYER COURSE CATALOG LIST
