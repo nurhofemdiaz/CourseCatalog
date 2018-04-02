@@ -37,6 +37,11 @@
 			<scope>provided</scope>
 		</dependency>
 		
+		<dependency>
+		  <groupId>org.apache.commons</groupId>
+		  <artifactId>commons-lang3</artifactId>
+		</dependency>
+		
 		<!-- Jersey -->
 		<dependency>
   			<groupId>org.springframework.boot</groupId>
@@ -77,7 +82,7 @@
 	</dependencies>
 
 	<build>
-		<!-- finalName>CourseCatalog</finalName-->
+		<finalName>CourseCatalog</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>

@@ -1,5 +1,8 @@
 package com.jmdiaz.course.catalog.model;
 
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
+
 /**
  * Teacher POJO
  * 
@@ -43,5 +46,32 @@ public class Teacher {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	@Override
+	public String toString() {
+		return new org.apache.commons.lang3.builder.ToStringBuilder(this).append("id", id).append("name", name)
+				.append("surname", surname).toString();
+	}
+
+	@Override
+	public int hashCode() {
+		return new HashCodeBuilder(17, 37).append(id).append(name).append(surname).toHashCode();
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) {
+			return true;
+		}
+
+		if (o == null || getClass() != o.getClass()) {
+			return false;
+		}
+
+		Teacher course = (Teacher) o;
+
+		return new EqualsBuilder().append(id, course.id).append(name, course.name).append(surname, course.surname)
+				.isEquals();
 	}
 }

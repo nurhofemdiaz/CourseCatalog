@@ -3,7 +3,6 @@ package com.jmdiaz.course.catalog.service;
 import java.util.List;
 
 import com.jmdiaz.course.catalog.model.Course;
-import com.jmdiaz.course.catalog.model.Page;
 
 /**
  * Interface for services implementation of courses catalog
@@ -16,12 +15,12 @@ public interface CourseCatalogService {
 	/**
 	 * Returns a active courses list for page requested
 	 * 
-	 * @param page
-	 *            The page parameters (size of page, current page, order of
-	 *            filtering
-	 * @return
+	 * @param numberOfPage
+	 * @param courseSizeList
+	 * @param ascendingOrder
+	 * @return List or courses
 	 */
-	public List<Course> getCoursesPage(Page page);
+	public List<Course> getCoursesPage(int numberOfPage, int courseSizeList, boolean ascendingOrder);
 
 	/**
 	 * Returns a number of pages stored for a number of rows

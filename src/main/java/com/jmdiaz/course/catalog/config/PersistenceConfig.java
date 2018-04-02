@@ -14,6 +14,7 @@ import org.springframework.jdbc.datasource.SimpleDriverDataSource;
 @Configuration
 @MapperScan("com.jmdiaz.course.catalog.repository")
 public class PersistenceConfig {
+
 	@Value("${database.dbHost}")
 	private String dbHost;
 

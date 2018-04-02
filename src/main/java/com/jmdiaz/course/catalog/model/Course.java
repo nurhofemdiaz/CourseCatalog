@@ -2,6 +2,9 @@ package com.jmdiaz.course.catalog.model;
 
 import com.jmdiaz.course.catalog.utils.CourseLevel;
 
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
+
 /**
  * Course POJO
  * 
@@ -79,5 +82,34 @@ public class Course {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	@Override
+	public String toString() {
+		return new org.apache.commons.lang3.builder.ToStringBuilder(this).append("id", id).append("enable", enable)
+				.append("title", title).append("level", level).append("hours", hours).append("teacher", teacher)
+				.toString();
+	}
+
+	@Override
+	public int hashCode() {
+		return new HashCodeBuilder(17, 37).append(id).append(enable).append(title).append(level).append(hours)
+				.append(teacher).toHashCode();
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) {
+			return true;
+		}
+
+		if (o == null || getClass() != o.getClass()) {
+			return false;
+		}
+
+		Course course = (Course) o;
+
+		return new EqualsBuilder().append(id, course.id).append(enable, course.enable).append(title, course.title)
+				.append(level, course.level).append(hours, course.hours).append(teacher, course.teacher).isEquals();
 	}
 }
