@@ -26,19 +26,19 @@ public class CourseCatalogServiceDefault implements CourseCatalogService {
 	private CourseRepository courseRepository;
 
 	@Override
-	public List<Course> getCoursesPage(int numberOfPage, int courseSizeList, boolean ascendingOrder) {
+	public List<Course> getCoursesPage(int numberOfPage, int courseSizeList, boolean ascendingOrder) throws Exception {
 		logger.debug("#### Course catalog service. Executing method getCoursesPage");
 		return courseRepository.getAllActiveCourses(numberOfPage, courseSizeList, Order.getOrder(ascendingOrder));
 	}
 
 	@Override
-	public Integer getNumberPages(int numberRows) {
+	public Integer getNumberPages(int numberRows) throws Exception {
 		logger.debug("#### Course catalog service. Executing method getNumberPages");
 		return courseRepository.getPagesNumber(numberRows);
 	}
 
 	@Override
-	public void addCourse(Course course) {
+	public void addCourse(Course course) throws Exception {
 		logger.debug("#### Course catalog service. Executing method addCourse");
 		courseRepository.addCourse(course);
 	}

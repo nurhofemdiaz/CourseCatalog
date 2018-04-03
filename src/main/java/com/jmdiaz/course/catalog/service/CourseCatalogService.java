@@ -20,7 +20,7 @@ public interface CourseCatalogService {
 	 * @param ascendingOrder
 	 * @return List or courses
 	 */
-	public List<Course> getCoursesPage(int numberOfPage, int courseSizeList, boolean ascendingOrder);
+	public List<Course> getCoursesPage(int numberOfPage, int courseSizeList, boolean ascendingOrder) throws Exception;
 
 	/**
 	 * Returns a number of pages stored for a number of rows
@@ -28,13 +28,13 @@ public interface CourseCatalogService {
 	 * @param numberRows
 	 * @return
 	 */
-	public Integer getNumberPages(int numberRows);
+	public Integer getNumberPages(int numberRows) throws Exception;
 
 	/**
 	 * Add a new course to courses catalog
 	 * 
 	 * @param course
 	 */
-	public void addCourse(Course course);
+	public void addCourse(Course course) throws Exception;
 
 }

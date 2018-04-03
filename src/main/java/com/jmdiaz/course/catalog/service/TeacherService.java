@@ -17,6 +17,6 @@ public interface TeacherService {
 	 * 
 	 * @return
 	 */
-	public List<Teacher> getAllTeachers();
+	public List<Teacher> getAllTeachers() throws Exception;
 
 }

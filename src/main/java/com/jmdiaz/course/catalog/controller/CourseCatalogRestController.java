@@ -1,9 +1,7 @@
 package com.jmdiaz.course.catalog.controller;
 
-import java.util.Collection;
 import java.util.List;
 
-import javax.validation.constraints.Size;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -25,7 +23,6 @@ import com.jmdiaz.course.catalog.model.Teacher;
 import com.jmdiaz.course.catalog.service.CourseCatalogService;
 import com.jmdiaz.course.catalog.service.TeacherService;
 import com.jmdiaz.course.catalog.utils.CourseLevel;
-import com.jmdiaz.course.catalog.validator.ValidCourse;
 
 /**
  * Rest controller
@@ -59,8 +56,7 @@ public class CourseCatalogRestController implements CourseCatalogController {
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("/page/size/{courseSizeList}")
-	public Integer getNumberOfPages(
-			@PathParam("courseSizeList") int courseSizeList)
+	public Integer getNumberOfPages(@PathParam("courseSizeList") int courseSizeList)
 			throws GeneralException, InvalidParametersException {
 		try {
 			logger.debug("#### Jersey rest controller. Executing method getNumberOfPages");
@@ -106,7 +102,7 @@ public class CourseCatalogRestController implements CourseCatalogController {
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("/teachers")
-	public Collection<Teacher> getAllTeachers() throws GeneralException {
+	public List<Teacher> getAllTeachers() throws GeneralException {
 		try {
 			logger.debug("#### Jersey rest controller. Executing method getAllTeachers");
 			return teacherService.getAllTeachers();
@@ -143,8 +139,7 @@ public class CourseCatalogRestController implements CourseCatalogController {
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("/add")
-	public Response addCourse(@ValidCourse(message = "Invalid parameters") Course course)
-			throws GeneralException, InvalidParametersException {
+	public Response addCourse(Course course) throws GeneralException, InvalidParametersException {
 		try {
 			logger.debug("#### Jersey rest controller. Executing method addCourse");
 			courseService.addCourse(course);

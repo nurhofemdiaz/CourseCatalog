@@ -25,7 +25,7 @@ public class TeacherServiceDefault implements TeacherService {
 	TeacherRepository teacherRepository;
 
 	@Override
-	public List<Teacher> getAllTeachers() {
+	public List<Teacher> getAllTeachers() throws Exception {
 		logger.debug("#### Teacher service. Executing method getAllTeachers");
 		return teacherRepository.getAllTeachers();
 	}
