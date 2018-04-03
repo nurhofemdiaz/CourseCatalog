@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 import com.jmdiaz.course.catalog.controller.CourseCatalogRestController;
 import com.jmdiaz.course.catalog.exception.CustomGeneralExceptionMapper;
 import com.jmdiaz.course.catalog.exception.CustomInvalidParametersMapper;
+import com.jmdiaz.course.catalog.exception.CustomValidationExceptionMapper;
 
 /**
  * Configuration class for Jersey Resources
@@ -21,7 +22,7 @@ public class JerseyConfig extends ResourceConfig {
 	 */
 	public JerseyConfig() {
 		registerClasses(CourseCatalogRestController.class, CorsConfig.class, CustomInvalidParametersMapper.class,
-				CustomGeneralExceptionMapper.class);
+				CustomGeneralExceptionMapper.class, CustomValidationExceptionMapper.class);
 	}
 
 }
