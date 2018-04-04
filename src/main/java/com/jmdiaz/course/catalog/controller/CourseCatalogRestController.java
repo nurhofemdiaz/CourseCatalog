@@ -8,6 +8,7 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
@@ -78,9 +79,9 @@ public class CourseCatalogRestController implements CourseCatalogController {
 	 */
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	@Path("/page/{numberOfPage}/size/{courseSizeList}/order/{order}")
-	public List<Course> getPageCoursesOrderered(@PathParam("numberOfPage") int numberOfPage,
-			@PathParam("courseSizeList") int courseSizeList, @PathParam("order") boolean ascendingOrder)
+	@Path("/courses")
+	public List<Course> getPageCoursesOrderered(@QueryParam("numberOfPage") int numberOfPage,
+			@QueryParam("courseSizeList") int courseSizeList, @QueryParam("order") boolean ascendingOrder)
 			throws GeneralException, InvalidParametersException {
 		try {
 			logger.debug("#### Jersey rest controller. Executing method getPageCoursesOrderered");
